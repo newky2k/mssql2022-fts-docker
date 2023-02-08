@@ -12,7 +12,7 @@ pool:
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: 'Newky2k Docker hub'
+    containerRegistry: 'Docker hub'
     repository: 'newky2k/msssqlfts'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
