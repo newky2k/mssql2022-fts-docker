@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Newky2k Docker hub'
+    repository: 'newky2k/msssqlfts'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      2022-$(Build.BuildId)
+      2022-latest
+    addPipelineData: false
